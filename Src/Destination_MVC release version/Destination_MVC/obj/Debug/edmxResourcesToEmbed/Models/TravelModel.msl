@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TraverModelStoreContainer" CdmEntityContainer="TraverEntities">
+    <EntitySetMapping Name="Order_details">
+      <EntityTypeMapping TypeName="TraverModel.Order_details">
+        <MappingFragment StoreEntitySet="Order_details">
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="orderInfo" ColumnName="orderInfo" />
+          <ScalarProperty Name="fromCity" ColumnName="fromCity" />
+          <ScalarProperty Name="toCity" ColumnName="toCity" />
+          <ScalarProperty Name="departureDate" ColumnName="departureDate" />
+          <ScalarProperty Name="returnDate" ColumnName="returnDate" />
+          <ScalarProperty Name="peopleNumber" ColumnName="peopleNumber" />
+          <ScalarProperty Name="payment" ColumnName="payment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_details">
+      <EntityTypeMapping TypeName="TraverModel.User_details">
+        <MappingFragment StoreEntitySet="User_details">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

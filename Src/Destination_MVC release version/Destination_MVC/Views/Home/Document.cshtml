@@ -1,0 +1,236 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Document";
+}
+
+<div class="content">
+
+    <div class="wrap">
+        <div class="document">
+            @Styles.Render("~/Content/doc")
+            <h1 id="document">Document</h1>
+            <hr>
+            <h3 id="author-details">Author Details</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <strong>Student</strong> :
+                        <br>
+                        <ul>
+                            <li>Zhao Xixi  ( 26347040 )</li>
+                            <li>Bai Jun ( 26346990 ) </li>
+                        </ul>
+                    </li>
+                    <li><strong>Unit name</strong> : Internet applications and web services </li>
+                    <li><strong>Unit provider</strong> : Monash University, The Faculty of Information Technology </li>
+                    <li><strong>Assignment number</strong> : Assignment 2 </li>
+                    <li><strong>Date of submission</strong> : 2015.09.02</li>
+                    <li><strong>Lecturer/tutor's name</strong> : Grace Xie</li>
+                    <li><strong>Email link to the author</strong> :<a href="mailto:jbai35@student.monash.edu">jbai35@student.monash.edu</a> <a href="mailto:xzha552@student.monash.edu">xzha552@student.monash.edu</a></li>
+                    <li><strong>Link to this assignment specification</strong> :<a href="http://moodle.vle.monash.edu/pluginfile.php/3289375/mod_resource/content/8/Assignments/FIT5192-Assignment2-2015.pdf">Assignment 2 Specification</a></li>
+                </ul>
+            </blockquote>
+
+            <hr>
+
+            <h3 id="image-details">Image Details</h3>
+
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="pic_name">Image</th>
+                        <th class="pic_src">Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/slider1.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/slider2.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/slider3.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/slider4.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/grids-img1.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/grids-img2.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td class="pic_name"><img src="~/Content/images/grids-img3.jpg" /></td>
+                        <td class="pic_src"><a href="http://www.cssmoban.com/">http://www.cssmoban.com/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <hr>
+
+            <h3 id="functionality-details">Functionality Details</h3>
+
+            <ul>
+                <li>
+                    <h4 id="overview">OverView</h4>
+
+                    <blockquote>
+                        <p>1. Master Page;  </p>
+                        <p>2. Home Page;</p>
+                        <p>3. Content Pages, including: <br/>
+                            &nbsp;&nbsp;* Design and Alphabetical List<br />
+                            &nbsp;&nbsp;* Add Records<br />
+                            &nbsp;&nbsp;* View Details<br />
+                            &nbsp;&nbsp;* Edit Records<br />
+                            &nbsp;&nbsp;* Delete Records<br />
+                            &nbsp;&nbsp;* Data Validation<br />
+                            &nbsp;&nbsp;* Alphabetical List
+                        </p>
+                        <p>4. Database, including: <br />
+                            &nbsp;&nbsp;* Two linked tables<br />
+                            &nbsp;&nbsp;* Meaningful table content
+                        </p>
+                        <p>5. Additional Functionality, including: <br />
+                            &nbsp;&nbsp;* Map Location<br />
+                            &nbsp;&nbsp;* Email Sending<br />
+                            &nbsp;&nbsp;* MVC Custom Template<br />
+                            &nbsp;&nbsp;* jQuery Slider<br />
+                            &nbsp;&nbsp;* Row Highlighting<br />
+                            &nbsp;&nbsp;* Alternating Row Colouring<br />
+                            &nbsp;&nbsp;* DataTable<br />
+                            &nbsp;&nbsp;* Timepicker
+                        </p>
+                        <p>6. Free of Error Deployment and Exception Handling</p>
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4 id="validation">Data Validationr</h4>
+
+                    <blockquote>
+                        <p>Build in Model data validation:</p>
+                        <img src="~/Content/images/validation1.jpg" />
+                        <br />
+                        <img src="~/Content/images/validation2.jpg" />
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4 id="AlphabeticalList">Alphabetical List</h4>
+
+                    <blockquote>
+                        <img src="~/Content/images/Alphabetical1.jpg" />
+                        <br/>
+                        <img src="~/Content/images/Alphabetical2.jpg" />
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4 id="map">Map Location</h4>
+
+                    <blockquote>
+                        <img src="~/Content/images/map.jpg" />
+                        <p><strong>Note:</strong> This function require VPN in China because of the use of Google Map.</p>
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4 id="email">Email Sending</h4>
+
+                    <blockquote>
+                        <img src="~/Content/images/email.jpg" />
+                        <p><strong>Note:</strong> This function just surpport Monash Email address.</p>
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4 id="template">MVC Custom Template (DataTable, Search function)</h4>
+
+                    <blockquote>
+                        <img src="~/Content/images/template.jpg" />
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4 id="about-login-required">jQuery Slider</h4>
+
+                    <blockquote>
+                        <p>The sliders in Home page can auto-change powered by jQuery.</p>
+                        <img src="~/Content/images/slider.jpg" />
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4>Row Highlighting and Alternating Row Colouring</h4>
+
+                    <blockquote>
+                        <img src="~/Content/images/row.jpg" />
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4>Timepicker</h4>
+
+                    <blockquote>
+                        <img src="~/Content/images/Timepicker.jpg" />
+                    </blockquote>
+                </li>
+
+                <li>
+                    <h4>Exception Handling</h4>
+
+                    <blockquote>
+                        <p>When sending email failed, it will show error page instead of break down.</p>
+                        <img src="~/Content/images/error.jpg" />                      
+                    </blockquote>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="specials">
+        <div class="wrap">
+            <div class="specials-heading">
+                <h3>Latest-News</h3>
+            </div>
+            <div class="specials-grids">
+                <div class="special-grid">
+                    <img src="~/Content/images/grids-img1.jpg" title="image-name" />
+                    <a href="#">Latest Plans</a>
+                    <p>The top 10 best itineraries especially selected here are based on our experience and former customers' recommendations, and provide an ideal guidance for your vacation.</p>
+                </div>
+                <div class="special-grid">
+                    <img src="~/Content/images/grids-img2.jpg" title="image-name" />
+                    <a href="#">Pre Plans</a>
+                    <p>As you enjoy the shipboard comfort of the Yangtze cruise, you will savor the majestic beauty of the world-renowned Three Gorges and see at first-hand the amazing Dam Project.</p>
+                </div>
+                <div class="special-grid spe-grid">
+                    <img src="~/Content/images/grids-img3.jpg" title="image-name" />
+                    <a href="#">Free Plans</a>
+                    <p>Comprehensive packages to every corner of Beijing: including the Great Wall, Forbidden City, Temple of Heaven, Hutong by rickshaw and the new ultra-modern Bird's Nest.</p>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="clear"> </div>
+
+

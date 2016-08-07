@@ -1,0 +1,207 @@
+﻿.document {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 84%;
+    color: #000;
+    background-color: #fff;
+}
+
+pre code,
+pre.prettyprint code {
+    background-color: transparent !important;
+}
+
+code {
+    padding: 2px 4px;
+    font-family: "Source Sans Pro";
+    font-size: 90%;
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.04);
+    white-space: nowrap;
+    border-radius: 4px;
+}
+
+blockquote ul:last-child,
+blockquote ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left-width: 10px;
+    background-color: #f8f8f8;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 15px 20px;
+}
+
+    blockquote p {
+        margin-bottom: 1.1em;
+        font-size: 1em;
+        line-height: 1.45;
+    }
+
+a code {
+    color: inherit;
+}
+
+.docuemnt h2,
+.h2 {
+    font-size: 30px;
+}
+
+.document h3,
+.h3 {
+    line-height: 40px;
+    font-size: 23px;
+    margin: 20px auto;
+}
+
+.document h4, .h4 {
+    line-height: 30px;
+    font-size: 1.4em;
+    margin: 25px auto 15px auto;
+}
+
+p {
+    margin: 0 0 10.5px;
+}
+
+a {
+    background: transparent;
+}
+
+    a:focus {
+        outline: thin dotted;
+    }
+
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+
+h1 {
+    font-size: 2.3em;
+    margin: .67em 0;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    margin: 15px auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    padding: 10.5px 21px;
+    margin: 0 0 21px;
+    border-left: 8px solid #eee;
+}
+
+    blockquote p:last-child {
+        margin-bottom: 0;
+    }
+
+    blockquote small,
+    blockquote .small {
+        display: block;
+        line-height: 1.45;
+        color: #999;
+    }
+
+        blockquote small:before,
+        blockquote .small:before {
+            content: '\2014 \00A0';
+        }
+
+    blockquote.pull-right {
+        padding-right: 15px;
+        padding-left: 0;
+        border-right: 5px solid #eee;
+        border-left: 0;
+    }
+
+        blockquote.pull-right p,
+        blockquote.pull-right small,
+        blockquote.pull-right .small {
+            text-align: right;
+        }
+
+            blockquote.pull-right small:before,
+            blockquote.pull-right .small:before {
+                content: '';
+            }
+
+            blockquote.pull-right small:after,
+            blockquote.pull-right .small:after {
+                content: '\00A0 \2014';
+            }
+
+
+.document ul li {
+    list-style-type: disc;
+    margin-left: 25px;
+    line-height: 28px;
+}
+
+    .document ul li ul li {
+        list-style-type: circle;
+        margin-left: 25px;
+        line-height: 28px;
+    }
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table {
+    width: 95%;
+    margin: auto;
+}
+
+    .table th,
+    .table td {
+        padding: 8px;
+        line-height: 20px;
+        text-align: left;
+        vertical-align: top;
+        border-top: 1px dashed #ddd;
+    }
+
+    .table th {
+        font-weight: 700;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+    }
+
+.pic_name {
+    width: 30%;
+    border-right: 1px dashed #ddd;
+    .pic_src{
+    width: 69%;
+}

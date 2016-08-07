@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>@ViewBag.Title - Perfect Traveling Destination</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/js")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @RenderSection("scripts", required: false)
+    <script>
+
+        $(function () {
+
+            $("#slider1").responsiveSlides({
+                maxwidth: 2500,
+                speed: 600
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <!---start-header---->
+    <div class="header">
+        <div class="wrap">
+            <div class="logo">
+                <a href="~/"><img src="~/Content/images/logo.png" title="logo" /></a>
+            </div>
+            <div class="top-nav">
+                <ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("User", "Index", "User_details")</li>
+                    <li>@Html.ActionLink("Order", "Index", "Order_details")</li>
+                    <li>@Html.ActionLink("Document", "Document", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+    <!---End-header---->
+
+    <div id="middle">
+         @RenderBody()
+    </div>
+
+    <div class="clear"></div>
+    <div class="testmonials">
+        <div class="wrap">
+            <div class="testmonial-grid">
+                <h3>TESTIMONIALS :</h3>
+                <p>&#34; Destination Travel focuses on supplying wonderful vacations. Detailed introduction to over 300 cities displays the destinations' tours, attractions, hotels, transportation, food, shopping, nightlife, weather, pictures, maps and travel tips. Crave for more besides the overwhelming amount of information? You can join our forums, ask or answer questions, post travel reviews and upload photos or videos to share experience on China travel with tourists all over the world!&#34;</p>
+                <a href="#"> - Enjoy Yourself !</a>
+            </div>
+        </div>
+    </div>
+
+    <!---start-footer---->
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-grids">
+                <div class="footer-grid">
+                    <h3>Useful Info</h3>
+                    <ul>
+                        <li><a href="http://www.travelchinaguide.com/">Travel China Guide </a></li>
+                        <li><a href="http://www.topchinatravel.com/">Top China Travel </a></li>
+                        <li><a href="http://www.libertytravel.com/">Liberty Travel </a></li>
+                        <li><a href="http://www.elite-travel-cn.com/">Elite-travel </a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-grid footer-copyright">
+                    <h3>Copyright</h3>
+                    <p>
+                        The sources of any material is not owned by the webmaster, and it's copyright free.
+                    </p>
+                    <p>&nbsp;</p>
+                    <h4><a href="http://users.monash.edu.au/~sgrose/msh/disclaimer.htm">Monash course disclaimer</a></h4>
+                    <h4>© 2015 All Rights Reserved</h4>
+                </div>
+                <div class="footer-grid">
+                    <h3>CONTACT US</h3>
+                    <h4>WebMaster:</h4>
+                    <div class="footer-grid-address">
+                        <p><a href="mailto:jbai35@student.monash.edu">jbai35@student.monash.edu</a></p>
+                        <p>&nbsp;</p>
+                        <h4>Page Author:</h4>
+                        <p><a href="mailto:xzha552@student.monash.edu">xzha552@student.monash.edu</a></p>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!---End-footer---->
+    <div class="clear"> </div>
+</body>
+</html>

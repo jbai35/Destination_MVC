@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TraverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Order_details">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="orderInfo" Type="nchar" MaxLength="255" />
+          <Property Name="fromCity" Type="nchar" MaxLength="255" />
+          <Property Name="toCity" Type="nchar" MaxLength="255" />
+          <Property Name="departureDate" Type="date" Nullable="false" />
+          <Property Name="returnDate" Type="date" Nullable="false" />
+          <Property Name="peopleNumber" Type="int" Nullable="false" />
+          <Property Name="payment" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_details">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nchar" MaxLength="64" />
+          <Property Name="password" Type="nchar" MaxLength="64" />
+          <Property Name="gender" Type="nchar" MaxLength="20" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="phone" Type="nchar" MaxLength="20" />
+          <Property Name="email" Type="nchar" MaxLength="64" />
+        </EntityType>
+        <Association Name="FK_Order_details_To_User_details">
+          <End Role="User_details" Type="Self.User_details" Multiplicity="1" />
+          <End Role="Order_details" Type="Self.Order_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_details">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Order_details">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TraverModelStoreContainer">
+          <EntitySet Name="Order_details" EntityType="Self.Order_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_details" EntityType="Self.User_details" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Order_details_To_User_details" Association="Self.FK_Order_details_To_User_details">
+            <End Role="User_details" EntitySet="User_details" />
+            <End Role="Order_details" EntitySet="Order_details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TraverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Order_details">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="orderInfo" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="fromCity" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="toCity" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="departureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="returnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="peopleNumber" Type="Int32" Nullable="false" />
+          <Property Name="payment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="User_details" Relationship="Self.FK_Order_details_To_User_details" FromRole="Order_details" ToRole="User_details" />
+        </EntityType>
+        <EntityType Name="User_details">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Order_details" Relationship="Self.FK_Order_details_To_User_details" FromRole="User_details" ToRole="Order_details" />
+        </EntityType>
+        <Association Name="FK_Order_details_To_User_details">
+          <End Role="User_details" Type="Self.User_details" Multiplicity="1" />
+          <End Role="Order_details" Type="Self.Order_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_details">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Order_details">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TraverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Order_details" EntityType="Self.Order_details" />
+          <EntitySet Name="User_details" EntityType="Self.User_details" />
+          <AssociationSet Name="FK_Order_details_To_User_details" Association="Self.FK_Order_details_To_User_details">
+            <End Role="User_details" EntitySet="User_details" />
+            <End Role="Order_details" EntitySet="Order_details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TraverModelStoreContainer" CdmEntityContainer="TraverEntities">
+          <EntitySetMapping Name="Order_details">
+            <EntityTypeMapping TypeName="TraverModel.Order_details">
+              <MappingFragment StoreEntitySet="Order_details">
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="orderInfo" ColumnName="orderInfo" />
+                <ScalarProperty Name="fromCity" ColumnName="fromCity" />
+                <ScalarProperty Name="toCity" ColumnName="toCity" />
+                <ScalarProperty Name="departureDate" ColumnName="departureDate" />
+                <ScalarProperty Name="returnDate" ColumnName="returnDate" />
+                <ScalarProperty Name="peopleNumber" ColumnName="peopleNumber" />
+                <ScalarProperty Name="payment" ColumnName="payment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_details">
+            <EntityTypeMapping TypeName="TraverModel.User_details">
+              <MappingFragment StoreEntitySet="User_details">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

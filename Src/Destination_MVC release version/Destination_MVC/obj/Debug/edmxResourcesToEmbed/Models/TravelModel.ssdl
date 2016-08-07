@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TraverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Order_details">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="orderInfo" Type="nchar" MaxLength="255" />
+    <Property Name="fromCity" Type="nchar" MaxLength="255" />
+    <Property Name="toCity" Type="nchar" MaxLength="255" />
+    <Property Name="departureDate" Type="date" Nullable="false" />
+    <Property Name="returnDate" Type="date" Nullable="false" />
+    <Property Name="peopleNumber" Type="int" Nullable="false" />
+    <Property Name="payment" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_details">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nchar" MaxLength="64" />
+    <Property Name="password" Type="nchar" MaxLength="64" />
+    <Property Name="gender" Type="nchar" MaxLength="20" />
+    <Property Name="birthday" Type="date" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="20" />
+    <Property Name="email" Type="nchar" MaxLength="64" />
+  </EntityType>
+  <Association Name="FK_Order_details_To_User_details">
+    <End Role="User_details" Type="Self.User_details" Multiplicity="1" />
+    <End Role="Order_details" Type="Self.Order_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_details">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Order_details">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TraverModelStoreContainer">
+    <EntitySet Name="Order_details" EntityType="Self.Order_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_details" EntityType="Self.User_details" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Order_details_To_User_details" Association="Self.FK_Order_details_To_User_details">
+      <End Role="User_details" EntitySet="User_details" />
+      <End Role="Order_details" EntitySet="Order_details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

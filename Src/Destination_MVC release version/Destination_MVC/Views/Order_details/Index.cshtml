@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Destination_MVC.Models.Order_details>
+@Styles.Render("~/Content/themes/base/css")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/bundles/myJQuery")
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/mvc")
+
+            <div class="content">
+                <!---start-services---->
+                <div class="services">
+                    <div class="wrap">
+                        <div class="services-header">
+                            <h3>Order Table</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<div class="show">
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table id="data">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.orderInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fromCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departureDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.returnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.peopleNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_details.username)
+            </th>
+            <th></th>
+        </tr>
+</thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.orderInfo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fromCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.toCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.departureDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.returnDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.peopleNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.payment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_details.username)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.orderId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.orderId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.orderId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

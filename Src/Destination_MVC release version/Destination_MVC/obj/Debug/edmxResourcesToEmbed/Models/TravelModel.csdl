@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TraverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Order_details">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="orderInfo" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="fromCity" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="toCity" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="departureDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="returnDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="peopleNumber" Type="Int32" Nullable="false" />
+    <Property Name="payment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="User_details" Relationship="Self.FK_Order_details_To_User_details" FromRole="Order_details" ToRole="User_details" />
+  </EntityType>
+  <EntityType Name="User_details">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Order_details" Relationship="Self.FK_Order_details_To_User_details" FromRole="User_details" ToRole="Order_details" />
+  </EntityType>
+  <Association Name="FK_Order_details_To_User_details">
+    <End Role="User_details" Type="Self.User_details" Multiplicity="1" />
+    <End Role="Order_details" Type="Self.Order_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_details">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Order_details">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TraverEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Order_details" EntityType="Self.Order_details" />
+    <EntitySet Name="User_details" EntityType="Self.User_details" />
+    <AssociationSet Name="FK_Order_details_To_User_details" Association="Self.FK_Order_details_To_User_details">
+      <End Role="User_details" EntitySet="User_details" />
+      <End Role="Order_details" EntitySet="Order_details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
